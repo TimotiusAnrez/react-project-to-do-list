@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list ejs test</title>
+</head>
+<body>
+    <form action="/add" method="POST">
+        <input type="text" name="item">
+        <input type="submit" value="add">
+    </form>
+    <% data.forEach(element => { %>
+        <div class="<%= element.id %>">
+                <input type="checkbox" name="isDone" value=<%= element.isDone %>>
+                <%= element.item %>
+                <a href="/edit/<%= element.id %>"><button>edit</button></a>
+                <a href="/delete/<%= element.id %>"><button>delete</button></a>        
+        </div>
+    <% }) %>
+</body>
+</html>
